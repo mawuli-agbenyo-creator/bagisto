@@ -1,15 +1,13 @@
 {
-    "name": "bagisto/paystack",
-    "description": "Paystack payment gateway for Bagisto",
+    "name": "bagisto/laravel-paypal",
+    "license": "MIT",
     "authors": [
         {
             "name": "Mawuli Agbenyo",
             "email": "mawulikofiagbenyo@gmail.com"
         }
     ],
-    "require": {
-        "php": "^7.3|^8.0"
-    },
+    "require": {},
     "autoload": {
         "psr-4": {
             "Webkul\\Paystack\\": "src/"
@@ -19,7 +17,8 @@
         "laravel": {
             "providers": [
                 "Webkul\\Paystack\\Providers\\PaystackServiceProvider"
-            ]
+            ],
+            "aliases": {}
         }
     },
     "minimum-stability": "dev"
