@@ -27,7 +27,14 @@ return [
                 'validation'    => 'required',
                 'channel_based' => false,
                 'locale_based'  => true,
+            ],
+            [
+                'name'          => 'icon',
+                'title'         => 'Icon',
+                'type'          => 'file',
+                'validation'    => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]
+            
         ]
     ]
 ];
