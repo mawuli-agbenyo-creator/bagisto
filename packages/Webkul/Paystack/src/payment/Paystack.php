@@ -24,6 +24,9 @@ class Paystack extends Payment
         // Implementation code goes here
     }
 
+   
+
+
     /**
      * Returns payment method image
      *
