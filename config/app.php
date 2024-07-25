@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Webkul\Paysack\Providers\PaystackServiceProvider;
 
 return [
     /*
@@ -192,7 +193,7 @@ return [
         Konekt\Concord\ConcordServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-        Razor\Paystack\Providers\PaystackServiceProvider::class,
+        PaystackServiceProvider::class,
 
 
         /**
