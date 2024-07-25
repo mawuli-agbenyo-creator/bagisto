@@ -192,6 +192,8 @@ return [
         Konekt\Concord\ConcordServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Razor\Paystack\Providers\PaystackServiceProvider::class,
+
 
         /**
          * Application service providers.
