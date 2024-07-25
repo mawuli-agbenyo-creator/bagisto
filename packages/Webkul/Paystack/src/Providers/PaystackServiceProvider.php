@@ -33,5 +33,4 @@ class PaystackServiceProvider extends ServiceProvider
             'core'
         );
     }
-    
 }
