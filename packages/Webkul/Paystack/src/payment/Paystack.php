@@ -40,7 +40,7 @@ class Paystack extends Payment
         return $this->code;
     }
 
-    
+
    
 
      /**
@@ -49,9 +49,9 @@ class Paystack extends Payment
      * @param  string  $field
      * @return mixed
      */
-    public function getConfigDataPaystack($field)
+    public function getConfigDataPaystack()
     {
-        return core()->getConfigData('sales.payment_methods.'.$this->getCode().'.'.$field);
+        return core()->getConfigData('sales.payment_methods.Paystack');
     }
 
 
@@ -61,7 +61,7 @@ class Paystack extends Payment
      *
      * @return array
      */
-    public function getImage()
+    public function getImageData()
     {
         $url = $this->getConfigDataPaystack('image');
 
