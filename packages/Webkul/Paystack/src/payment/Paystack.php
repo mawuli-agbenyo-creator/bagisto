@@ -2,6 +2,7 @@
 
 namespace Webkul\Paystack\payment;
 
+use Illuminate\Support\Facades\Log;
 use Webkul\Payment\Payment\Payment;
 use Illuminate\Support\Facades\Storage;
 
@@ -64,7 +65,7 @@ class Paystack extends Payment
     public function getImageData()
     {
         $url = $this->getConfigDataPaystack('image');
-
-        return $url ? Storage::url($url) : bagisto_asset('images/paystack.png', 'shop');
+        Log::alert($url);
+        return $url ? Storage::url($url) : bagisto_asset('paystack.png', 'shop');
     }
 }
