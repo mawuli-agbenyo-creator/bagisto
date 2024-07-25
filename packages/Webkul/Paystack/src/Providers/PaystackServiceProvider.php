@@ -28,9 +28,9 @@ class PaystackServiceProvider extends ServiceProvider
             'payment_methods'
         );
 
-        $this->mergeConfigFrom(
-            dirname(__DIR__) . '/Config/system.php',
-            'core'
-        );
+        // $this->mergeConfigFrom(
+        //     dirname(__DIR__) . '/Config/system.php',
+        //     'core'
+        // );
     }
 }
