@@ -21,5 +21,6 @@
                 "Webkul\\Paystack\\Providers\\PaystackServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
