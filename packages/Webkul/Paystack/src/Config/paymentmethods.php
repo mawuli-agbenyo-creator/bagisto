@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'stripe'  => [
+    'Paystack'  => [
         'code'        => 'Paystack',
         'title'       => 'Paystack',
         'description' => 'Paystack',
