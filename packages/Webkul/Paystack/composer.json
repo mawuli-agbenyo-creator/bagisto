@@ -7,7 +7,6 @@
             "email": "mawulikofiagbenyo@gmail.com"
         }
     ],
-    "type": "library",
     "require": {
         "php": "^7.3|^8.0"
     },
