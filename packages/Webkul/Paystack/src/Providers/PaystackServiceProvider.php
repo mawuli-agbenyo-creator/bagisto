@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\Paysack\Providers;
+namespace Webkul\Paystack\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
