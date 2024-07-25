@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\Paystack\Payment;
+namespace Webkul\Paystack\payment;
 
 use Webkul\Payment\Payment\Payment;
 
