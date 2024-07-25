@@ -17,19 +17,6 @@ class PaystackServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'paystack');
-        $this->publishes([
-            __DIR__ . '/../Resources/assets' => public_path('vendor/paystack'),
-        ], 'public');
-    }
-
-    /**
      * Register package config.
      *
      * @return void
@@ -46,4 +33,5 @@ class PaystackServiceProvider extends ServiceProvider
             'core'
         );
     }
+    
 }
