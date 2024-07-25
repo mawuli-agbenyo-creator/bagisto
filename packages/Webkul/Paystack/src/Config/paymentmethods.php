@@ -12,6 +12,6 @@ return [
         'sandbox' => true,
         'public_key' => env('PAYSTACK_PUBLIC_KEY'),
         'secret_key' => env('PAYSTACK_SECRET_KEY'),
-        'image' => 'hhhh'
+        'image' => 'https://seeklogo.com/images/P/paystack-logo-D1191C9B92-seeklogo.com.png'
     ],
 ];
