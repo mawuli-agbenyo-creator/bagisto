@@ -24,7 +24,36 @@ class Paystack extends Payment
         // Implementation code goes here
     }
 
+
+    
+    /**
+     * Get payment method code.
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        if (empty($this->code)) {
+            // throw exception
+        }
+
+        return $this->code;
+    }
+
+    
    
+
+     /**
+     * Retrieve information from payment configuration.
+     *
+     * @param  string  $field
+     * @return mixed
+     */
+    public function getConfigDataPaystack($field)
+    {
+        return core()->getConfigData('sales.payment_methods.'.$this->getCode().'.'.$field);
+    }
+
 
 
     /**
@@ -34,7 +63,7 @@ class Paystack extends Payment
      */
     public function getImage()
     {
-        $url = $this->getConfigData('image');
+        $url = $this->getConfigDataPaystack('image');
 
         return $url ? Storage::url($url) : bagisto_asset('images/paypal.png', 'shop');
     }
