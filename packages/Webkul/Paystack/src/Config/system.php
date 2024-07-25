@@ -5,6 +5,7 @@ return [
         'key'    => 'sales.payment_methods.Paystack',
         'name'   => 'Paystack',
         'sort'   => 1,
+        "info" => 'paystack',
         'fields' => [
             [
                 'name'          => 'title',
@@ -33,7 +34,7 @@ return [
                 'type'          => 'file',
                 'validation'    => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]
-
+            
         ]
     ]
 ];
