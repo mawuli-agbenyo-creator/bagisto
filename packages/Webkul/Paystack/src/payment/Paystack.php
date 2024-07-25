@@ -50,9 +50,9 @@ class Paystack extends Payment
      * @param  string  $field
      * @return mixed
      */
-    public function getConfigDataPaystack()
+    public function getConfigDataPaystack($field)
     {
-        return core()->getConfigData('sales.payment_methods.Paystack');
+        return core()->getConfigData('sales.payment_methods.'.$this->getCode().'.'.$field);
     }
 
 
@@ -66,6 +66,6 @@ class Paystack extends Payment
     {
         $url = $this->getConfigDataPaystack('image');
         Log::alert($url);
-        return $url ? Storage::url($url) : bagisto_asset('paystack.png', 'shop');
+        return $url ? Storage::url($url) : bagisto_asset('images/paystack.png', 'shop');
     }
 }
