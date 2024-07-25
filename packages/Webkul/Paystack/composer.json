@@ -1,5 +1,5 @@
 {
-    "name": "payment/paystack",
+    "name": "razor/paystack",
     "description": "Paystack payment gateway for Bagisto",
     "type": "library",
     "require": {
@@ -9,6 +9,12 @@
         "psr-4": {
             "Webkul\\Paystack\\": "packages/Webkul/Paystack/src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Paystack\\Providers\\PaystackServiceProvider"
+            ]
+        }
     }
-    
 }

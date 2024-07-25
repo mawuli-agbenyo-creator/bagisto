@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
-use Webkul\Paysack\Providers\PaystackServiceProvider;
 
 return [
     /*
@@ -193,7 +192,7 @@ return [
         Konekt\Concord\ConcordServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-        PaystackServiceProvider::class,
+        // Webkul\Paysack\Providers\PaystackServiceProvider::class,
 
 
         /**
@@ -229,6 +228,7 @@ return [
         Webkul\Notification\Providers\NotificationServiceProvider::class,
         Webkul\Payment\Providers\PaymentServiceProvider::class,
         Webkul\Paypal\Providers\PaypalServiceProvider::class,
+        Webkul\Paysack\Providers\PaystackServiceProvider::class,
         Webkul\Product\Providers\ProductServiceProvider::class,
         Webkul\Rule\Providers\RuleServiceProvider::class,
         Webkul\Sales\Providers\SalesServiceProvider::class,
