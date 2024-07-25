@@ -33,6 +33,6 @@ class Paystack extends Payment
     {
         $url = $this->getConfigData('image');
 
-        return $url ? Storage::url($url) : bagisto_asset('images/paypal.png', 'shop');
+        return $url ? Storage::url($url) : bagisto_asset('images/paympal.png', 'shop');
     }
 }
