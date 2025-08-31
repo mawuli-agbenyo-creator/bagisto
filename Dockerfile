@@ -39,7 +39,7 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
 # Run key generation
-RUN php artisan key:generate
+# RUN php artisan key:generate
 
 # Fix permissions for Laravel/Bagisto
 RUN mkdir -p /var/www/storage/logs \
