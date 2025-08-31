@@ -36,8 +36,12 @@ COPY . .
 # Install PHP dependencies (optimize for production)
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-# Fix permissions for Laravel/Bagisto
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+# Run Laravel key generation
+RUN php artisan key:generate
+
+# Ensure Laravel storage & cache dirs exist and fix permissions
+RUN mkdir -p /var/www/storage/logs \
+    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Add extension check script
