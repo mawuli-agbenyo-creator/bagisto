@@ -36,8 +36,7 @@ WORKDIR /var/www
 COPY . .
 
 # Fix permissions for Laravel/Bagisto
-RUN mkdir -p /var/www/storage/logs \
-    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache /var/www/vendor
+# RUN mkdir -p /var/www/storage/logs \ && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache /var/www/vendor
 
 # Switch to non-root user
 USER www-data
