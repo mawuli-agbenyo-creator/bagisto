@@ -31,18 +31,23 @@ COPY ./docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
 # Set workdir
 WORKDIR /var/www
+
+# Copy project files
 COPY . .
 
 # Install PHP dependencies (optimize for production)
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-# Run Laravel key generation
+# Run key generation
 RUN php artisan key:generate
 
-# Ensure Laravel storage & cache dirs exist and fix permissions
+# Fix permissions for Laravel/Bagisto
 RUN mkdir -p /var/www/storage/logs \
     && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
+# Switch to non-root user (important!)
+USER www-data
 
 # Add extension check script
 COPY ./docker/check-extensions.php /check-extensions.php
