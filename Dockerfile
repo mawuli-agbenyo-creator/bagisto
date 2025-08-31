@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev libonig-dev libxml2-dev libzip-dev \
     libicu-dev g++ libjpeg-dev libfreetype6-dev libjpeg62-turbo-dev libwebp-dev \
     libcurl4-openssl-dev pkg-config libssl-dev \
+    libxslt1-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install -j$(nproc) \
         pdo_mysql \
@@ -15,6 +16,8 @@ RUN apt-get update && apt-get install -y \
         bcmath \
         gd \
         zip \
+        calendar \
+        dom \
     && pecl install redis \
     && docker-php-ext-enable redis opcache
 
@@ -36,6 +39,9 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-di
 # Fix permissions for Laravel/Bagisto
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
+# Add extension check script
+COPY ./docker/check-extensions.php /check-extensions.php
 
 EXPOSE 8080
 
