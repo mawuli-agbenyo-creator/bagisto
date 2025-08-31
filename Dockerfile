@@ -35,19 +35,18 @@ WORKDIR /var/www
 # Copy project files
 COPY . .
 
-# Install PHP dependencies (optimize for production)
-RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
-
-# Run key generation
-# RUN php artisan key:generate
-
 # Fix permissions for Laravel/Bagisto
 RUN mkdir -p /var/www/storage/logs \
-    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
-    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache /var/www/vendor
 
-# Switch to non-root user (important!)
+# Switch to non-root user
 USER www-data
+
+# Install PHP dependencies (as www-data, safer for caching volumes)
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
+# Run key generation (as www-data)
+# RUN php artisan key:generate
 
 # Add extension check script
 COPY ./docker/check-extensions.php /check-extensions.php
