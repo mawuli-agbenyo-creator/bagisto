@@ -47,7 +47,7 @@ RUN mkdir -p /var/www/storage/logs \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Switch to non-root user (important!)
-USER www-data
+# USER www-data
 
 # Add extension check script
 COPY ./docker/check-extensions.php /check-extensions.php
