@@ -5,9 +5,20 @@ RUN apt-get update && apt-get install -y \
     git curl unzip zip supervisor nginx ffmpeg \
     libpng-dev libonig-dev libxml2-dev libzip-dev \
     libicu-dev g++ libjpeg-dev libfreetype6-dev libjpeg62-turbo-dev libwebp-dev \
+    libcurl4-openssl-dev pkg-config libssl-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
     && docker-php-ext-install -j$(nproc) \
-        pdo_mysql mbstring exif intl bcmath gd zip
+        pdo_mysql \
+        mbstring \
+        exif \
+        intl \
+        bcmath \
+        gd \
+        zip \
+        tokenizer \
+        xml \
+        ctype \
+    && docker-php-ext-enable opcache
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -21,10 +32,10 @@ COPY ./docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
 WORKDIR /var/www
 COPY . .
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader
+# Install PHP dependencies (optimize for production)
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-# Fix permissions
+# Fix permissions for Laravel/Bagisto
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
